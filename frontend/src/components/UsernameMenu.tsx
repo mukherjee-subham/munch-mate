@@ -27,7 +27,7 @@ const UsernameMenu = () => {
         <Separator />
         <DropdownMenuItem>
           <Button
-            className="flex flex-1 font-bold hover:text-orange-500"
+            className="flex flex-1 font-bold hover:bg-slate-500"
             onClick={() => logout()}
           >
             Logout
