@@ -12,6 +12,10 @@ mongoose.connect(process.env.MONGODB_CONNECTION_URL as string).then(() => {
   console.log("Connected to DB");
 });
 
+app.get("/health", (req: Request, res: Response) => {
+  res.send({ message: "Health is OK!" });
+});
+
 app.use("/api/my/user", myUserRoute);
 
 app.listen(3000, () => {
