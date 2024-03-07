@@ -51,6 +51,7 @@ const getCurrentUser = async (req: Request, res: Response) => {
     }
     return res.json({
       email: user.email,
+      name: user.name,
       addressLine1: user.addressLine1,
       city: user.city,
       country: user.country,
