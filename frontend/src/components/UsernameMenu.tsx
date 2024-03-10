@@ -28,7 +28,13 @@ const UsernameMenu = () => {
         <DropdownMenuItem>
           <Button
             className="flex flex-1 font-bold hover:bg-slate-500"
-            onClick={() => logout()}
+            onClick={() =>
+              logout({
+                logoutParams: {
+                  returnTo: `${window.location.origin}`,
+                },
+              })
+            }
           >
             Logout
           </Button>
