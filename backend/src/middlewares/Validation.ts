@@ -30,7 +30,7 @@ export const ValidateUserRequest = [
 export const validateRestaurantRequest = [
   body("restaurantName").notEmpty().withMessage("Restaurant name is required"),
   body("city").notEmpty().withMessage("City is required"),
-  body("Country").notEmpty().withMessage("Country is required"),
+  body("country").notEmpty().withMessage("Country is required"),
   body("deliveryPrice")
     .isFloat({ min: 0 })
     .withMessage("Delivery price should be a positive number"),
