@@ -47,7 +47,37 @@ const getMyRestaurant = async (req: Request, res: Response) => {
   }
 };
 
+const updateMyRestaurant = async (req: Request, res: Response) => {
+  try {
+    const existingRestaurant = await Restaurant.findOne({ user: req.userId });
+    if (!existingRestaurant) {
+      console.log("No restaurant found for update");
+      return res.status(404).json({ message: "Restaurant details not found" });
+    }
+
+    existingRestaurant.restaurantName = req.body.restaurantName;
+    existingRestaurant.city = req.body.city;
+    existingRestaurant.country = req.body.country;
+    existingRestaurant.deliveryPrice = req.body.deliveryPrice;
+    existingRestaurant.estimatedDeliveryTime = req.body.estimatedDeliveryTime;
+    existingRestaurant.menuItems = req.body.menuItems;
+    existingRestaurant.cuisines = req.body.cuisines;
+    existingRestaurant.imageUrl = req.body.imageUrl;
+    existingRestaurant.lastUpdated = new Date();
+
+    existingRestaurant.save();
+
+    return res
+      .status(200)
+      .json({ message: "Restaurant details updated successfully" });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: "Something went wrong." });
+  }
+};
+
 export default {
   createMyRestaurant,
   getMyRestaurant,
+  updateMyRestaurant,
 };
