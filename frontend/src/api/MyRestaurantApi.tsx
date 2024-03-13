@@ -5,6 +5,7 @@ import { toast } from "sonner";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
+//get
 export const useGetMyRestaurant = () => {
   const { getAccessTokenSilently } = useAuth0();
 
@@ -30,6 +31,7 @@ export const useGetMyRestaurant = () => {
   return { restaurant, isLoading };
 };
 
+//create
 export const useCreateMyRestaurant = () => {
   const { getAccessTokenSilently } = useAuth0();
 
@@ -69,4 +71,48 @@ export const useCreateMyRestaurant = () => {
   }
 
   return { createRestaurant, isLoading };
+};
+
+//update
+export const useUpdateMyRestaurant = () => {
+  const { getAccessTokenSilently } = useAuth0();
+
+  const updateMyRestaurantRequest = async (
+    restaurantFormData: FormData
+  ): Promise<Restaurant> => {
+    const token = await getAccessTokenSilently();
+
+    const response = await fetch(`${API_BASE_URL}/api/my/restaurant`, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: restaurantFormData,
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to update restaurant details");
+    }
+
+    return response.json();
+  };
+
+  const {
+    mutateAsync: updateRestaurant,
+    error,
+    isLoading,
+    isSuccess,
+    reset,
+  } = useMutation(updateMyRestaurantRequest);
+
+  if (error) {
+    toast.error("Failed to update restaurant details");
+    reset();
+  }
+
+  if (isSuccess) {
+    toast.success("Successfully updated restaurant details");
+  }
+
+  return { updateRestaurant, isLoading };
 };
