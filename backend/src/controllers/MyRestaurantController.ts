@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import Restaurant from "../models/restaurant";
 import cloudinary from "cloudinary";
 import mongoose from "mongoose";
+import { ReadonlyContext } from "express-validator/src/context";
 
 const createMyRestaurant = async (req: Request, res: Response) => {
   try {
@@ -11,11 +12,7 @@ const createMyRestaurant = async (req: Request, res: Response) => {
       return res.status(409).json("Restaurant already exists");
     }
 
-    const image = req.file as Express.Multer.File;
-    const base64Image = Buffer.from(image.buffer).toString("base64");
-    const dataURI = `data:${image.mimetype};base64,${base64Image}`;
-
-    const uploadResponse = await cloudinary.v2.uploader.upload(dataURI);
+    const uploadResponse = await uploadImage(req.file as Express.Multer.File);
 
     const restaurant = new Restaurant(req.body);
     restaurant.imageUrl = uploadResponse.url;
@@ -50,9 +47,15 @@ const getMyRestaurant = async (req: Request, res: Response) => {
 const updateMyRestaurant = async (req: Request, res: Response) => {
   try {
     const existingRestaurant = await Restaurant.findOne({ user: req.userId });
+
     if (!existingRestaurant) {
       console.log("No restaurant found for update");
       return res.status(404).json({ message: "Restaurant details not found" });
+    }
+
+    if (req.file) {
+      const uploadResponse = await uploadImage(req.file);
+      existingRestaurant.imageUrl = uploadResponse.url;
     }
 
     existingRestaurant.restaurantName = req.body.restaurantName;
@@ -62,10 +65,9 @@ const updateMyRestaurant = async (req: Request, res: Response) => {
     existingRestaurant.estimatedDeliveryTime = req.body.estimatedDeliveryTime;
     existingRestaurant.menuItems = req.body.menuItems;
     existingRestaurant.cuisines = req.body.cuisines;
-    existingRestaurant.imageUrl = req.body.imageUrl;
     existingRestaurant.lastUpdated = new Date();
 
-    existingRestaurant.save();
+    await existingRestaurant.save();
 
     return res
       .status(200)
@@ -74,6 +76,15 @@ const updateMyRestaurant = async (req: Request, res: Response) => {
     console.log(error);
     return res.status(500).json({ message: "Something went wrong." });
   }
+};
+
+const uploadImage = async (file: Express.Multer.File) => {
+  const image = file;
+  const base64Image = Buffer.from(image.buffer).toString("base64");
+  const dataURI = `data:${image.mimetype};base64,${base64Image}`;
+
+  const uploadResponse = await cloudinary.v2.uploader.upload(dataURI);
+  return uploadResponse;
 };
 
 export default {
