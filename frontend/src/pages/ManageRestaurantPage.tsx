@@ -11,8 +11,10 @@ const ManageRestaurantPage = () => {
   const { restaurant } = useGetMyRestaurant();
   const { updateRestaurant, isLoading: isUpdateLoading } =
     useUpdateMyRestaurant();
-
-  const isEditing = !!restaurant;
+  let isEditing = false;
+  if (restaurant?.imageUrl) {
+    isEditing = true;
+  }
 
   return (
     <ManageRestaurantForm

@@ -98,7 +98,7 @@ export const useUpdateMyRestaurant = () => {
   };
 
   const {
-    mutateAsync: updateRestaurant,
+    mutate: updateRestaurant,
     error,
     isLoading,
     isSuccess,
