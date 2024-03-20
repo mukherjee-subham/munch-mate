@@ -9,6 +9,7 @@ export const useSearchRestaurantsApi = (
   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   const params = new URLSearchParams();
   params.set("searchQuery", searchState.searchQuery);
+  params.set("page", searchState.page.toString());
   const searchRestaurantsRequest =
     async (): Promise<RestaurantSearchResponse> => {
       const response = await fetch(
