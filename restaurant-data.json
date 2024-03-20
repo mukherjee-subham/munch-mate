@@ -1,0 +1,692 @@
+[
+  {
+    "user": "dummyUser1",
+    "restaurantName": "Tasty Bites",
+    "city": "Asansol",
+    "country": "India",
+    "deliveryPrice": 50,
+    "estimatedDeliveryTime": 45,
+    "cuisines": ["Vegetarian", "Italian", "Cafe"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33696b" },
+        "name": "Margherita Pizza",
+        "price": 80
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33696c" },
+        "name": "Pasta Primavera",
+        "price": 120
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-13T20:02:48.119+00:00"
+  },
+  {
+    "user": "dummyUser2",
+    "restaurantName": "Spice Haven",
+    "city": "Kolkata",
+    "country": "India",
+    "deliveryPrice": 40,
+    "estimatedDeliveryTime": 35,
+    "cuisines": ["North Indian", "Chinese"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33696d" },
+        "name": "Butter Chicken",
+        "price": 100
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33696e" },
+        "name": "Chow Mein",
+        "price": 80
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-12T15:30:20.517+00:00"
+  },
+  {
+    "user": "dummyUser3",
+    "restaurantName": "Mexican Delight",
+    "city": "Asansol",
+    "country": "India",
+    "deliveryPrice": 55,
+    "estimatedDeliveryTime": 40,
+    "cuisines": ["Mexican", "Fast Food"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33696f" },
+        "name": "Tacos",
+        "price": 90
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336970" },
+        "name": "Burritos",
+        "price": 120
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-11T10:15:35.724+00:00"
+  },
+  {
+    "user": "dummyUser4",
+    "restaurantName": "Indian Spice",
+    "city": "Kolkata",
+    "country": "India",
+    "deliveryPrice": 45,
+    "estimatedDeliveryTime": 30,
+    "cuisines": ["Indian", "South Indian"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336971" },
+        "name": "Masala Dosa",
+        "price": 80
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336972" },
+        "name": "Chicken Biryani",
+        "price": 120
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-10T08:45:50.932+00:00"
+  },
+  {
+    "user": "dummyUser5",
+    "restaurantName": "Café Bliss",
+    "city": "Asansol",
+    "country": "India",
+    "deliveryPrice": 40,
+    "estimatedDeliveryTime": 25,
+    "cuisines": ["Cafe", "Breakfast"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336973" },
+        "name": "Espresso",
+        "price": 40
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336974" },
+        "name": "Pancakes",
+        "price": 70
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-09T06:20:15.218+00:00"
+  },
+  {
+    "user": "dummyUser6",
+    "restaurantName": "Sushi Sensation",
+    "city": "Kolkata",
+    "country": "India",
+    "deliveryPrice": 50,
+    "estimatedDeliveryTime": 40,
+    "cuisines": ["Japanese", "Asian"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336975" },
+        "name": "Dragon Roll",
+        "price": 160
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336976" },
+        "name": "Nigiri Sushi",
+        "price": 100
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-13T20:02:48.119+00:00"
+  },
+  {
+    "user": "dummyUser7",
+    "restaurantName": "Mexican Fiesta",
+    "city": "Asansol",
+    "country": "India",
+    "deliveryPrice": 55,
+    "estimatedDeliveryTime": 45,
+    "cuisines": ["Mexican", "BBQ"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336977" },
+        "name": "Quesadillas",
+        "price": 100
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336978" },
+        "name": "Chili Con Carne",
+        "price": 120
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-12T15:30:20.517+00:00"
+  },
+  {
+    "user": "dummyUser8",
+    "restaurantName": "Bakery Delights",
+    "city": "Kolkata",
+    "country": "India",
+    "deliveryPrice": 35,
+    "estimatedDeliveryTime": 20,
+    "cuisines": ["Cafe", "Cake"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336979" },
+        "name": "Chocolate Cake",
+        "price": 100
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33697a" },
+        "name": "Red Velvet Cupcake",
+        "price": 80
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-11T10:15:35.724+00:00"
+  },
+  {
+    "user": "dummyUser9",
+    "restaurantName": "Pizza Paradise",
+    "city": "Asansol",
+    "country": "India",
+    "deliveryPrice": 40,
+    "estimatedDeliveryTime": 30,
+    "cuisines": ["Italian", "Pizza"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33697b" },
+        "name": "Pepperoni Pizza",
+        "price": 150
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33697c" },
+        "name": "Vegetarian Supreme",
+        "price": 120
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-10T08:45:50.932+00:00"
+  },
+  {
+    "user": "dummyUser10",
+    "restaurantName": "Burger Joint",
+    "city": "Kolkata",
+    "country": "India",
+    "deliveryPrice": 45,
+    "estimatedDeliveryTime": 35,
+    "cuisines": ["Fast Food", "Burger"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33697d" },
+        "name": "Classic Burger",
+        "price": 80
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33697e" },
+        "name": "Cheeseburger",
+        "price": 100
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-09T06:20:15.218+00:00"
+  },
+  {
+    "user": "dummyUser11",
+    "restaurantName": "Korean Spice",
+    "city": "Asansol",
+    "country": "India",
+    "deliveryPrice": 60,
+    "estimatedDeliveryTime": 50,
+    "cuisines": ["Korean", "Asian"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33697f" },
+        "name": "Bibimbap",
+        "price": 120
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336980" },
+        "name": "Kimchi Fried Rice",
+        "price": 100
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-13T20:02:48.119+00:00"
+  },
+  {
+    "user": "dummyUser12",
+    "restaurantName": "Ice Cream Dream",
+    "city": "Asansol",
+    "country": "India",
+    "deliveryPrice": 40,
+    "estimatedDeliveryTime": 25,
+    "cuisines": ["Dessert", "Ice cream"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336981" },
+        "name": "Vanilla Cone",
+        "price": 30
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336982" },
+        "name": "Chocolate Sundae",
+        "price": 60
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-12T15:30:20.517+00:00"
+  },
+  {
+    "user": "dummyUser13",
+    "restaurantName": "Asian Fusion",
+    "city": "Kolkata",
+    "country": "India",
+    "deliveryPrice": 50,
+    "estimatedDeliveryTime": 40,
+    "cuisines": ["Asian", "Fast Food"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336983" },
+        "name": "Spring Rolls",
+        "price": 80
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336984" },
+        "name": "General Tso's Chicken",
+        "price": 100
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-11T10:15:35.724+00:00"
+  },
+  {
+    "user": "dummyUser14",
+    "restaurantName": "Breakfast Bliss",
+    "city": "Asansol",
+    "country": "India",
+    "deliveryPrice": 35,
+    "estimatedDeliveryTime": 25,
+    "cuisines": ["Breakfast", "Cafe"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336985" },
+        "name": "Egg Sandwich",
+        "price": 50
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336986" },
+        "name": "Pancakes",
+        "price": 70
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-10T08:45:50.932+00:00"
+  },
+  {
+    "user": "dummyUser15",
+    "restaurantName": "Pasta Paradise",
+    "city": "Kolkata",
+    "country": "India",
+    "deliveryPrice": 60,
+    "estimatedDeliveryTime": 50,
+    "cuisines": ["Italian", "Pasta"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336987" },
+        "name": "Spaghetti Carbonara",
+        "price": 140
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336988" },
+        "name": "Fettuccine Alfredo",
+        "price": 120
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-09T06:20:15.218+00:00"
+  },
+  {
+    "user": "dummyUser16",
+    "restaurantName": "Burger Mania",
+    "city": "Asansol",
+    "country": "India",
+    "deliveryPrice": 45,
+    "estimatedDeliveryTime": 35,
+    "cuisines": ["American", "Burger"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336989" },
+        "name": "Classic Burger",
+        "price": 80
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33698a" },
+        "name": "Cheeseburger",
+        "price": 100
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-13T20:02:48.119+00:00"
+  },
+  {
+    "user": "dummyUser17",
+    "restaurantName": "BBQ Delight",
+    "city": "Kolkata",
+    "country": "India",
+    "deliveryPrice": 55,
+    "estimatedDeliveryTime": 45,
+    "cuisines": ["BBQ", "American"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33698b" },
+        "name": "BBQ Ribs",
+        "price": 150
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33698c" },
+        "name": "Pulled Pork Sandwich",
+        "price": 120
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-12T15:30:20.517+00:00"
+  },
+  {
+    "user": "dummyUser18",
+    "restaurantName": "Chinese Dragon",
+    "city": "Asansol",
+    "country": "India",
+    "deliveryPrice": 60,
+    "estimatedDeliveryTime": 50,
+    "cuisines": ["Chinese", "Asian"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33698d" },
+        "name": "Kung Pao Chicken",
+        "price": 120
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33698e" },
+        "name": "Sweet and Sour Pork",
+        "price": 100
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-11T10:15:35.724+00:00"
+  },
+  {
+    "user": "dummyUser19",
+    "restaurantName": "Indian Spice",
+    "city": "Kolkata",
+    "country": "India",
+    "deliveryPrice": 45,
+    "estimatedDeliveryTime": 30,
+    "cuisines": ["Indian", "South Indian"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33698f" },
+        "name": "Masala Dosa",
+        "price": 80
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336990" },
+        "name": "Chicken Biryani",
+        "price": 120
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-10T08:45:50.932+00:00"
+  },
+  {
+    "user": "dummyUser20",
+    "restaurantName": "Sushi Sensation",
+    "city": "Asansol",
+    "country": "India",
+    "deliveryPrice": 50,
+    "estimatedDeliveryTime": 40,
+    "cuisines": ["Japanese", "Asian"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336991" },
+        "name": "Dragon Roll",
+        "price": 160
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336992" },
+        "name": "Nigiri Sushi",
+        "price": 100
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-09T06:20:15.218+00:00"
+  },
+  {
+    "user": "dummyUser21",
+    "restaurantName": "Pizza Paradise",
+    "city": "Kolkata",
+    "country": "India",
+    "deliveryPrice": 40,
+    "estimatedDeliveryTime": 30,
+    "cuisines": ["Italian", "Pizza"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336993" },
+        "name": "Pepperoni Pizza",
+        "price": 150
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336994" },
+        "name": "Vegetarian Supreme",
+        "price": 120
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-13T20:02:48.119+00:00"
+  },
+  {
+    "user": "dummyUser22",
+    "restaurantName": "Burger Joint",
+    "city": "Asansol",
+    "country": "India",
+    "deliveryPrice": 45,
+    "estimatedDeliveryTime": 35,
+    "cuisines": ["Fast Food", "Burger"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336995" },
+        "name": "Classic Burger",
+        "price": 80
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336996" },
+        "name": "Cheeseburger",
+        "price": 100
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-12T15:30:20.517+00:00"
+  },
+  {
+    "user": "dummyUser23",
+    "restaurantName": "Korean Spice",
+    "city": "Kolkata",
+    "country": "India",
+    "deliveryPrice": 60,
+    "estimatedDeliveryTime": 50,
+    "cuisines": ["Korean", "Asian"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336997" },
+        "name": "Bibimbap",
+        "price": 120
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336998" },
+        "name": "Kimchi Fried Rice",
+        "price": 100
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-11T10:15:35.724+00:00"
+  },
+  {
+    "user": "dummyUser24",
+    "restaurantName": "Ice Cream Dream",
+    "city": "Asansol",
+    "country": "India",
+    "deliveryPrice": 40,
+    "estimatedDeliveryTime": 25,
+    "cuisines": ["Dessert", "Ice cream"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c336999" },
+        "name": "Vanilla Cone",
+        "price": 30
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33699a" },
+        "name": "Chocolate Sundae",
+        "price": 60
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-10T08:45:50.932+00:00"
+  },
+  {
+    "user": "dummyUser25",
+    "restaurantName": "Asian Fusion",
+    "city": "Kolkata",
+    "country": "India",
+    "deliveryPrice": 50,
+    "estimatedDeliveryTime": 40,
+    "cuisines": ["Asian", "Fast Food"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33699b" },
+        "name": "Spring Rolls",
+        "price": 80
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33699c" },
+        "name": "General Tso's Chicken",
+        "price": 100
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-09T06:20:15.218+00:00"
+  },
+  {
+    "user": "dummyUser26",
+    "restaurantName": "Breakfast Bliss",
+    "city": "Asansol",
+    "country": "India",
+    "deliveryPrice": 35,
+    "estimatedDeliveryTime": 25,
+    "cuisines": ["Breakfast", "Cafe"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33699d" },
+        "name": "Egg Sandwich",
+        "price": 50
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33699e" },
+        "name": "Pancakes",
+        "price": 70
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-13T20:02:48.119+00:00"
+  },
+  {
+    "user": "dummyUser27",
+    "restaurantName": "Pasta Paradise",
+    "city": "Kolkata",
+    "country": "India",
+    "deliveryPrice": 60,
+    "estimatedDeliveryTime": 50,
+    "cuisines": ["Italian", "Pasta"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c33699f" },
+        "name": "Spaghetti Carbonara",
+        "price": 140
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c3369a0" },
+        "name": "Fettuccine Alfredo",
+        "price": 120
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-12T15:30:20.517+00:00"
+  },
+  {
+    "user": "dummyUser28",
+    "restaurantName": "Burger Mania",
+    "city": "Asansol",
+    "country": "India",
+    "deliveryPrice": 45,
+    "estimatedDeliveryTime": 35,
+    "cuisines": ["Fast Food", "Burger"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c3369a1" },
+        "name": "Classic Burger",
+        "price": 80
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c3369a2" },
+        "name": "Cheeseburger",
+        "price": 100
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-11T10:15:35.724+00:00"
+  },
+  {
+    "user": "dummyUser29",
+    "restaurantName": "BBQ Delight",
+    "city": "Kolkata",
+    "country": "India",
+    "deliveryPrice": 55,
+    "estimatedDeliveryTime": 45,
+    "cuisines": ["BBQ", "American"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c3369a3" },
+        "name": "BBQ Ribs",
+        "price": 150
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c3369a4" },
+        "name": "Pulled Pork Sandwich",
+        "price": 120
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-10T08:45:50.932+00:00"
+  },
+  {
+    "user": "dummyUser30",
+    "restaurantName": "Chinese Dragon",
+    "city": "Asansol",
+    "country": "India",
+    "deliveryPrice": 60,
+    "estimatedDeliveryTime": 50,
+    "cuisines": ["Chinese", "Asian"],
+    "menuItems": [
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c3369a5" },
+        "name": "Kung Pao Chicken",
+        "price": 120
+      },
+      {
+        "_id": { "$oid": "5feb8a3d5b5a261c4c3369a6" },
+        "name": "Sweet and Sour Pork",
+        "price": 100
+      }
+    ],
+    "imageUrl": "https://placehold.co/1600x400",
+    "lastUpdated": "2024-03-09T06:20:15.218+00:00"
+  }
+]
