@@ -4,8 +4,8 @@ Features:
 
 - Must be responsive ✅
 - User signup, login, authentication ✅
-- User is able to search for restaurant by tags/location
-- Sort according to delivery time/discount etc
+- User is able to search for restaurant by tags/location ✅
+- Sort according to delivery time/discount etc ✅
 - Able to add food to cart and checkout to payment
 - User is able to set and update his own delivery address ✅
 - Can see order status and ETA
