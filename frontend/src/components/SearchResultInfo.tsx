@@ -18,7 +18,6 @@ const SearchResultInfo = ({ total, city }: Props) => {
           Change location?
         </Link>
       </span>
-      Insert sort dropwdown here
     </div>
   );
 };

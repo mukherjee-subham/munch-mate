@@ -10,6 +10,8 @@ export const useSearchRestaurantsApi = (
   const params = new URLSearchParams();
   params.set("searchQuery", searchState.searchQuery);
   params.set("page", searchState.page.toString());
+  params.set("selectedCuisines", searchState.selectedCuisines.join(","));
+  params.set("sortOption", searchState.sortOption);
   const searchRestaurantsRequest =
     async (): Promise<RestaurantSearchResponse> => {
       const response = await fetch(

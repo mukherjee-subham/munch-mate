@@ -27,10 +27,12 @@ const findRestaurant = async (req: Request, res: Response) => {
     }
 
     if (selectedCuisines) {
-      const cuisinesArray = selectedCuisines.split(",").map((cuisine) => {
-        new RegExp(cuisine, "i");
-      });
-
+      console.log(selectedCuisines);
+      console.log(selectedCuisines.split(","));
+      const cuisinesArray = selectedCuisines
+        .split(",")
+        .map((cuisine) => new RegExp(cuisine, "i"));
+      console.log(cuisinesArray);
       query["cuisines"] = { $all: cuisinesArray };
     }
 
@@ -51,7 +53,7 @@ const findRestaurant = async (req: Request, res: Response) => {
 
     const pageSize = 10;
     const skip = (page - 1) * pageSize;
-
+    console.log(query);
     const restaurants = await Restaurant.find(query)
       .sort({ [sortOption]: 1 })
       .skip(skip)
