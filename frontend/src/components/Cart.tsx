@@ -1,9 +1,16 @@
 import { CartItem } from "@/pages/DetailsPage";
 import { Restaurant } from "@/types";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Separator } from "./ui/separator";
 import { Trash } from "lucide-react";
+import CheckoutButton from "./CheckoutButton";
 
 type Props = {
   restaurantDetails: Restaurant;
@@ -63,6 +70,9 @@ const Cart = ({ cartItems, restaurantDetails, removeFromCart }: Props) => {
           </div>
           <Separator />
         </CardContent>
+        <CardFooter>
+          <CheckoutButton />
+        </CardFooter>
       </Card>
     </>
   );
