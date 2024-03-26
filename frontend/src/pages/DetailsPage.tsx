@@ -18,11 +18,23 @@ const DetailsPage = () => {
   const { restaurantId } = useParams();
   const { restaurantDetails, isLoading } =
     useGetRestaurantDetailsApi(restaurantId);
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+    const cartItemsFromSession = sessionStorage.getItem(
+      `cartItems-${restaurantDetails?._id}`
+    );
+    return cartItemsFromSession ? JSON.parse(cartItemsFromSession) : [];
+  });
 
   const removeFromCart = (cartItem: CartItem) => {
     setCartItems((prevCartItems) => {
-      return prevCartItems.filter((item) => item._id !== cartItem._id);
+      const updatedCartItems = prevCartItems.filter(
+        (item) => item._id !== cartItem._id
+      );
+      sessionStorage.setItem(
+        `cartItems-${restaurantDetails?._id}`,
+        JSON.stringify(updatedCartItems)
+      );
+      return updatedCartItems;
     });
   };
 
@@ -51,6 +63,10 @@ const DetailsPage = () => {
           },
         ];
       }
+      sessionStorage.setItem(
+        `cartItems-${restaurantDetails?._id}`,
+        JSON.stringify(updatedCartItems)
+      );
       return updatedCartItems;
     });
   };
@@ -74,6 +90,10 @@ const DetailsPage = () => {
             : cartItem
         );
       }
+      sessionStorage.setItem(
+        `cartItems-${restaurantDetails?._id}`,
+        JSON.stringify(updatedCartItems)
+      );
       return updatedCartItems;
     });
   };
