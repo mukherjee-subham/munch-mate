@@ -36,7 +36,7 @@ const Cart = ({ cartItems, restaurantDetails, removeFromCart }: Props) => {
                   variant="outline"
                   className="mr-2 bg-orange-500 text-white"
                 >
-                  {item.quantity}x
+                  {item.quantity}
                 </Badge>
                 {item.name}
               </span>

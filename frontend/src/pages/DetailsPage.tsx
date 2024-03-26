@@ -55,6 +55,29 @@ const DetailsPage = () => {
     });
   };
 
+  const minusFromCart = (menuItem: MenuItem) => {
+    setCartItems((prevCartItems) => {
+      const existingCartItem = prevCartItems.find(
+        (cartItem) => cartItem._id === menuItem._id
+      );
+
+      let updatedCartItems;
+
+      if (existingCartItem?.quantity === 1) {
+        updatedCartItems = prevCartItems.filter(
+          (item) => item._id !== menuItem._id
+        );
+      } else {
+        updatedCartItems = prevCartItems.map((cartItem) =>
+          cartItem._id === menuItem._id
+            ? { ...cartItem, quantity: cartItem.quantity - 1 }
+            : cartItem
+        );
+      }
+      return updatedCartItems;
+    });
+  };
+
   if (isLoading || !restaurantDetails) {
     return <span>Loading...</span>;
   }
@@ -72,7 +95,11 @@ const DetailsPage = () => {
           <RestaurantInfo restaurantDetails={restaurantDetails} />
           <span className="text-2xl font-bold tracking-tight">Menu</span>
           {restaurantDetails.menuItems.map((item) => (
-            <MenuItemCard menuItem={item} addToCart={() => addToCart(item)} />
+            <MenuItemCard
+              menuItem={item}
+              addToCart={() => addToCart(item)}
+              minusFromCart={() => minusFromCart(item)}
+            />
           ))}
         </div>
         <div>
