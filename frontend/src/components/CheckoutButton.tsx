@@ -12,18 +12,7 @@ type Props = {
   onCheckout: (userFormData: UserFormData) => void;
   disabled: boolean;
 };
-import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
-import UserProfileForm, {
-  UserFormData,
-} from "@/forms/user-profile-form/UserProfileForm";
-import { useGetMyUser } from "@/api/MyUserApi";
 
-type Props = {
-  onCheckout: (userFormData: UserFormData) => void;
-  disabled: boolean;
-};
-
-const CheckoutButton = ({ onCheckout, disabled }: Props) => {
 const CheckoutButton = ({ onCheckout, disabled }: Props) => {
   const {
     isAuthenticated,
@@ -32,8 +21,6 @@ const CheckoutButton = ({ onCheckout, disabled }: Props) => {
   } = useAuth0();
 
   const { pathname } = useLocation();
-
-  const { userData, isLoading: isGetUserLoading } = useGetMyUser();
 
   const { userData, isLoading: isGetUserLoading } = useGetMyUser();
 
@@ -56,7 +43,6 @@ const CheckoutButton = ({ onCheckout, disabled }: Props) => {
     );
   }
 
-  if (isAuthLoading || !userData) {
   if (isAuthLoading || !userData) {
     return <LoadingButton />;
   }
