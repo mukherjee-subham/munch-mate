@@ -11,6 +11,7 @@ import { Badge } from "./ui/badge";
 import { Separator } from "./ui/separator";
 import { Trash } from "lucide-react";
 import CheckoutButton from "./CheckoutButton";
+import { UserFormData } from "@/forms/user-profile-form/UserProfileForm";
 
 type Props = {
   restaurantDetails: Restaurant;
@@ -27,6 +28,11 @@ const Cart = ({ cartItems, restaurantDetails, removeFromCart }: Props) => {
     const totalPayable = totalBasket + restaurantDetails.deliveryPrice;
     return totalPayable;
   };
+
+  const onCheckout = (userFormData: UserFormData) => {
+    console.log("userFormData", userFormData);
+  };
+
   return (
     <>
       <Card>
@@ -71,7 +77,10 @@ const Cart = ({ cartItems, restaurantDetails, removeFromCart }: Props) => {
           <Separator />
         </CardContent>
         <CardFooter>
-          <CheckoutButton />
+          <CheckoutButton
+            disabled={cartItems.length === 0}
+            onCheckout={onCheckout}
+          />
         </CardFooter>
       </Card>
     </>
