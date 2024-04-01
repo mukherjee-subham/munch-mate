@@ -12,6 +12,7 @@ import { Separator } from "./ui/separator";
 import { Trash } from "lucide-react";
 import CheckoutButton from "./CheckoutButton";
 import { UserFormData } from "@/forms/user-profile-form/UserProfileForm";
+import { useCreateCheckoutSession } from "@/api/OrderApi";
 
 type Props = {
   restaurantDetails: Restaurant;
@@ -20,6 +21,9 @@ type Props = {
 };
 
 const Cart = ({ cartItems, restaurantDetails, removeFromCart }: Props) => {
+  const { createCheckoutSession, isLoading: isCheckoutLoading } =
+    useCreateCheckoutSession();
+
   const getTotalCost = () => {
     const totalBasket = cartItems.reduce(
       (total, cartItem) => total + cartItem.price * cartItem.quantity,
@@ -29,8 +33,26 @@ const Cart = ({ cartItems, restaurantDetails, removeFromCart }: Props) => {
     return totalPayable;
   };
 
-  const onCheckout = (userFormData: UserFormData) => {
+  const onCheckout = async (userFormData: UserFormData) => {
     console.log("userFormData", userFormData);
+
+    const checkoutData = {
+      cartItems: cartItems.map((cartItem) => ({
+        menuItemId: cartItem._id,
+        name: cartItem.name,
+        quantity: cartItem.quantity.toString(),
+      })),
+      restaurantId: restaurantDetails._id,
+      deliveryDetails: {
+        email: userFormData.email as string,
+        name: userFormData.name,
+        addressLine1: userFormData.addressLine1,
+        city: userFormData.city,
+      },
+    };
+
+    const data = await createCheckoutSession(checkoutData);
+    window.location.href = data.url;
   };
 
   return (

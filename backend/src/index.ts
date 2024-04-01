@@ -6,6 +6,7 @@ import myUserRoute from "./routes/MyUserRoute";
 import { v2 as cloudinary } from "cloudinary";
 import myRestaurantRoute from "./routes/MyRestaurantRoute";
 import restaurantRoute from "./routes/RestaurantRoute";
+import orderRoute from "./routes/OrderRoute";
 
 const app = express();
 app.use(express.json());
@@ -28,6 +29,7 @@ app.get("/health", (req: Request, res: Response) => {
 app.use("/api/my/user", myUserRoute);
 app.use("/api/my/restaurant", myRestaurantRoute);
 app.use("/api/restaurant", restaurantRoute);
+app.use("/api/order", orderRoute);
 
 app.listen(3000, () => {
   console.log("Server is running!");
