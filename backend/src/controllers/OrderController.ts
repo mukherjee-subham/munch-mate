@@ -1,9 +1,11 @@
 import { Request, Response } from "express";
 import Stripe from "stripe";
 import Restaurant, { MenuItemType } from "../models/restaurant";
+import Order from "../models/order";
 
 const STRIPE = new Stripe(process.env.STRIPE_API_KEY as string);
 const FRONTEND_URL = process.env.FRONTEND_REDIRECT_URL as string;
+const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET as string;
 
 type CheckoutSessionRequest = {
   cartItems: {
@@ -20,6 +22,37 @@ type CheckoutSessionRequest = {
   restaurantId: string;
 };
 
+const handleStripeCheckoutWebhook = async (req: Request, res: Response) => {
+  const sig = req.headers["stripe-signature"];
+  let event;
+
+  try {
+    event = Stripe.webhooks.constructEvent(
+      req.body,
+      sig as string,
+      endpointSecret
+    );
+  } catch (err: any) {
+    console.log(err);
+    return res.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  if (event.type === "checkout.session.completed") {
+    const orderId = event.data.object.metadata?.orderId;
+    const order = await Order.findById(orderId);
+
+    if (!order) {
+      return res.status(404).json({ message: "Order not found" });
+    }
+
+    order.totalAmount = (event.data.object.amount_total as number) / 100;
+    order.status = "paid";
+    await order.save();
+  }
+
+  return res.send();
+};
+
 const createCheckoutSession = async (req: Request, res: Response) => {
   try {
     const checkoutSessionRequest: CheckoutSessionRequest = req.body;
@@ -32,6 +65,15 @@ const createCheckoutSession = async (req: Request, res: Response) => {
       throw new Error("Restaurant not found");
     }
 
+    const newOrder = new Order({
+      restaurant: restaurant,
+      user: req.userId,
+      cartItems: checkoutSessionRequest.cartItems,
+      deliveryDetails: checkoutSessionRequest.deliveryDetails,
+      status: "placed",
+      createdAt: new Date(),
+    });
+
     const lineItems = createLineItems(
       checkoutSessionRequest,
       restaurant.menuItems
@@ -39,16 +81,16 @@ const createCheckoutSession = async (req: Request, res: Response) => {
 
     const session = await createSession(
       lineItems,
-      "TEST_ORDER_ID",
+      newOrder._id.toString(),
       restaurant.deliveryPrice,
-      restaurant._id.toString(),
-      checkoutSessionRequest.deliveryDetails.email
+      restaurant._id.toString()
     );
 
     if (!session) {
       return res.status(500).json({ message: "Error creating stripe session" });
     }
 
+    await newOrder.save();
     res.json({ url: session.url });
   } catch (error: any) {
     console.log(error);
@@ -89,8 +131,7 @@ const createSession = async (
   lineItems: Stripe.Checkout.SessionCreateParams.LineItem[],
   orderId: string,
   deliveryPrice: number,
-  restaurantId: string,
-  customerEmail: string
+  restaurantId: string
 ) => {
   const sessionData = await STRIPE.checkout.sessions.create({
     success_url: `${FRONTEND_URL}/order-status?success=true`,
@@ -120,4 +161,5 @@ const createSession = async (
 
 export default {
   createCheckoutSession,
+  handleStripeCheckoutWebhook,
 };
