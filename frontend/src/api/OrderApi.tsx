@@ -1,5 +1,6 @@
+import { Order } from "@/types";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useMutation } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import { toast } from "sonner";
 
 type CheckoutSessionRequest = {
@@ -58,4 +59,30 @@ export const useCreateCheckoutSession = () => {
   }
 
   return { createCheckoutSession, isLoading };
+};
+
+export const useGetMyOrders = () => {
+  const { getAccessTokenSilently } = useAuth0();
+  const getMyOrderRequest = async (): Promise<Order[]> => {
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL as string;
+    const accessToken = await getAccessTokenSilently();
+    const response = await fetch(`${API_BASE_URL}/api/order/`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response) {
+      console.log("Unable to fetch orders");
+      throw new Error("Unable to fetch orders");
+    }
+    return response.json();
+  };
+
+  const { data: orders, isLoading } = useQuery(
+    "getMyOrders",
+    getMyOrderRequest
+  );
+
+  return { orders, isLoading };
 };
