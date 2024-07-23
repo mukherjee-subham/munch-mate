@@ -61,9 +61,7 @@ const CheckoutButton = ({ onCheckout, disabled, isLoading }: Props) => {
       <DialogContent className="max-w-[425px] md:min-w-[700px] bg-gray-50">
         <UserProfileForm
           userData={userData}
-          onSave={() => {
-            onCheckout(userData);
-          }}
+          onSave={onCheckout}
           isLoading={isGetUserLoading}
           buttonText="Proceed to checkout"
           title="Confirm delivery details"

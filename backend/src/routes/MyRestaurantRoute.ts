@@ -32,6 +32,13 @@ router.get(
   MyRestaurantController.getMyRestaurantOrders
 );
 
+router.patch(
+  "/order/:orderId/status",
+  jwtCheck,
+  jwtParse,
+  MyRestaurantController.updateMyRestaurantOrder
+);
+
 router.put(
   "/",
   upload.single("imageFile"),

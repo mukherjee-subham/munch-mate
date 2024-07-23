@@ -48,7 +48,7 @@ const UserProfileForm = ({
 
   useEffect(() => {
     form.reset(userData);
-  }, [userData]);
+  }, [userData, form]);
 
   return (
     <Form {...form}>

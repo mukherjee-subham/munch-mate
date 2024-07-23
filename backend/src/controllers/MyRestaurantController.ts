@@ -106,7 +106,36 @@ const getMyRestaurantOrders = async (req: Request, res: Response) => {
   }
 };
 
+const updateMyRestaurantOrder = async (req: Request, res: Response) => {
+  const { orderId } = req.params;
+  const { status } = req.body;
+  console.log("Inside update order status");
+  console.log("Req params:", orderId);
+  console.log("Status:", status);
+  try {
+    const order = await Order.findById(orderId);
+    console.log("Found order:", order);
+    if (!order) {
+      return res.status(404).json({ message: "Unable to find order" });
+    }
+
+    const restaurant = await Restaurant.findById(order.restaurant);
+    console.log("Restaurant:", restaurant);
+    if (restaurant?.user?._id.toString() !== req.userId) {
+      return res.status(401);
+    }
+    order.status = status;
+    await order.save();
+    console.log(order);
+    return res.json(order);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: "Unable to update order" });
+  }
+};
+
 export default {
+  updateMyRestaurantOrder,
   createMyRestaurant,
   getMyRestaurant,
   updateMyRestaurant,

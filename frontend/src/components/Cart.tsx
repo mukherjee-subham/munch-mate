@@ -48,6 +48,7 @@ const Cart = ({ cartItems, restaurantDetails, removeFromCart }: Props) => {
         name: userFormData.name,
         addressLine1: userFormData.addressLine1,
         city: userFormData.city,
+        country: userFormData.country,
       },
     };
 
